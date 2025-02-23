@@ -29,7 +29,7 @@ const Home = () => {
             </div>
           </div>
 
-          {/* multi banner  1*/}
+          {/* multi banner 1*/}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="relative h-[250px] overflow-hidden rounded-2xl">
               <img 
@@ -84,7 +84,7 @@ const Home = () => {
 
           </div>
 
-          {/* multi banner  2*/}
+          {/* multi banner 2*/}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="relative h-[250px] overflow-hidden rounded-2xl col-span-1 sm:col-span-2">
               <img 

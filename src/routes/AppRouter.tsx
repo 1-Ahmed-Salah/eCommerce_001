@@ -25,8 +25,18 @@ const router = createBrowserRouter([
                 element: <About />
             },
             {
-                path: 'products:prefix',
-                element: <Products />
+                path: 'products/:prefix',
+                element: <Products />,
+                loader: ({ params }) => {
+                    if(typeof params.prefix !== 'string' || !/^[a-z]+$/i.test(params.prefix)) {
+                        throw new Response('Bad Request', {
+                            statusText: 'Category not found',
+                            status: 400
+                        })
+                    }
+
+                    return true;
+                }
             },
             {
                 path: 'Categories',
