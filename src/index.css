@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+::selection {
+  background-color: transparent;
+}
+
 html, body {
   margin: 0;
   padding: 0;
