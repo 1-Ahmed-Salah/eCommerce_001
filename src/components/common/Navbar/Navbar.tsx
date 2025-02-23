@@ -1,6 +1,7 @@
 import { Heart, Menu, ShoppingCart } from "lucide-react"
 import Logo from "@assets/logo.svg"
 import { useEffect } from "react";
+import { Link } from "react-router";
 
 interface INavbarState {
     menuOpen: boolean;
@@ -47,19 +48,19 @@ const Navbar: React.FC<INavbarState> = ({menuOpen, setMenuOpen}) => {
                         <nav>
                             <ul className="items-center space-x-8 hidden md:flex">
                                 <li>
-                                    <a href="#" className="text-gray-300 hover:text-white duration-300 text-sm font-bold">Home</a>
+                                    <Link to="/" className="text-gray-300 hover:text-white duration-300 text-sm font-bold">Home</Link>
                                 </li>
                                 <li>
-                                    <a href="#" className="text-gray-300 hover:text-white duration-300 text-sm font-bold">Categories</a>
+                                    <Link to="categories" className="text-gray-300 hover:text-white duration-300 text-sm font-bold">Categories</Link>
                                 </li>
                                 <li>
-                                    <a href="#" className="text-gray-300 hover:text-white duration-300 text-sm font-bold">About</a>
+                                    <Link to="about" className="text-gray-300 hover:text-white duration-300 text-sm font-bold">About</Link>
                                 </li>
                                 <li>
-                                    <a href="#" className="text-gray-300 hover:text-white duration-300 text-sm font-bold">Login</a>
+                                    <Link to="login" className="text-gray-300 hover:text-white duration-300 text-sm font-bold">Login</Link>
                                 </li>
                                 <li>
-                                    <a href="#" className="text-gray-300 hover:text-white duration-300 text-sm font-bold">Register</a>
+                                    <Link to="register" className="text-gray-300 hover:text-white duration-300 text-sm font-bold">Register</Link>
                                 </li>
                             </ul>
                         </nav>

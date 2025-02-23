@@ -12,7 +12,7 @@ const Home = () => {
               className="absolute z-10 h-[650px] w-full  object-cover rounded-2xl" 
             />
 
-            <div className="relative z-20 h-full w-full inset-0 bg-black/70 grid place-content-center">
+            <div className="relative z-20 h-full w-full inset-0 bg-black/40 grid place-content-center">
               <h1 
                 className='text-center text-3xl md:text-4xl lg:text-6xl font-semibold bg-gradient-to-r from-pink-600 to-purple-500 bg-clip-text text-transparent mb-5 font-secound'
               >Discover Your Style</h1>
