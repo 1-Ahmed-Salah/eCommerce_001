@@ -8,6 +8,8 @@ import Home from '@pages/Home';
 import Products from '@pages/Products';
 import Categories from '@pages/Categories';
 import Error from '@pages/Error';
+import Login from '@pages/Login';
+import Register from '@pages/Register';
 
 
 const router = createBrowserRouter([
@@ -25,7 +27,7 @@ const router = createBrowserRouter([
                 element: <About />
             },
             {
-                path: 'products/:prefix',
+                path: 'categories/products/:prefix',
                 element: <Products />,
                 loader: ({ params }) => {
                     if(typeof params.prefix !== 'string' || !/^[a-z]+$/i.test(params.prefix)) {
@@ -39,8 +41,16 @@ const router = createBrowserRouter([
                 }
             },
             {
-                path: 'Categories',
+                path: 'categories',
                 element: <Categories/>
+            },
+            {
+                path: 'login',
+                element: <Login />
+            },
+            {
+                path: 'register',
+                element: <Register />
             }
         ]
     }
