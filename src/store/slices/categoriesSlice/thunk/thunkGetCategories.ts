@@ -2,7 +2,7 @@ import { TCategory } from "@customTypes/category.types";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-type TResponse = TCategory[]
+type TResponse = TCategory[];
 
 export const thunkGetCategories = createAsyncThunk('categoriesSlice/thunkGetCategories', async (_, thunkAPI)=> {
     const {rejectWithValue} = thunkAPI;

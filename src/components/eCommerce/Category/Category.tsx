@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 
 const Category: React.FC<TCategory> = ({title, prefix, img}) => {
   return (
-    <Link to={`products/${prefix}`} className='w-[200px] h-[200px]'>
+    <Link to={`products/${prefix}`} className='w-[130px] h-[130px]'>
       <img 
         src={img} 
         alt={title} 

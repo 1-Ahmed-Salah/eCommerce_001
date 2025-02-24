@@ -24,13 +24,13 @@ const Navbar: React.FC<INavbarState> = ({menuOpen, setMenuOpen}) => {
             <div className="container">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
-                    <a href="">
+                    <Link to="/">
                         <img 
                             src={Logo}
                             alt="logo" 
                             className="h-8"
                         />
-                    </a>
+                    </Link>
 
                     
                     <div className="flex items-center">
