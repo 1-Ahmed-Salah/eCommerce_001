@@ -1,10 +1,11 @@
-import { RootState } from './index';
 import { configureStore } from '@reduxjs/toolkit';
-import categories from './slices/categoriesSlice/categoriesSlice'
+import categories from './slices/categoriesSlice/categoriesSlice';
+import products from './slices/productsSlice/productsSlice';
 
 export const store = configureStore({
     reducer: {
-        categories
+        categories,
+        products
     }
 })
 
