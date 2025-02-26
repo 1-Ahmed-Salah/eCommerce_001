@@ -33,7 +33,7 @@
   ],
   "products": [
     {
-      "id": 1,
+      "id": 6,
       "title": "Classic Grey Hooded Sweatshirt",
       "price": "90.00",
       "cat_prefix": "clothes",
@@ -194,7 +194,7 @@
       "img": "https://imgur.com/Lqaqz59.png"
     },
     {
-      "id": 19,
+      "id": 24,
       "title": "Trendy Pink-Tinted Sunglasses",
       "price": "38.00",
       "cat_prefix": "miscellaneous",
