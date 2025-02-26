@@ -1,5 +1,34 @@
+import { Product } from "@components/eCommerce";
+import Pagination from "@components/eCommerce/Pagination/Pagination";
+import { useAppDispatch, useAppSelector } from "@store/hooks"
+import { thunkGetProducts } from "@store/slices/productsSlice/thunk/thunkGetProducts";
+import { useEffect, useState } from "react";
 
 const Home = () => {
+
+  const dispatch = useAppDispatch();
+  const { records, loading, error } = useAppSelector(state => state.products);
+  const pageSize = 8;
+  const countPages = Math.ceil(records.length / pageSize)
+  const [pagination, setPagination] = useState({
+    count: 0,
+    from: 0,
+    to: pageSize
+  })
+
+  const handlePagination = (page: number) => {
+    console.log(page)
+    const from = (page - 1) * pageSize;
+    const to = from + pageSize;
+    setPagination({...pagination, from, to});
+  }
+
+  useEffect(()=> {
+    dispatch(thunkGetProducts());
+  }, [dispatch])
+
+  const productsList = records.length > 0? records.slice(pagination.from, pagination.to).map(record => <Product key={record.id} {...record} />) : 'There are no products'
+
   return (
     <section className="section">
       <div className="container">
@@ -136,15 +165,20 @@ const Home = () => {
                 </button>
               </div>
             </div>
-
           </div>
-
+        </div>
+        {/* all products */}
+        <div className="py-20">
+          <h2 className="text-2xl font-secound text-center ">Products</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-6">
+            {
+              productsList
+            }
+          </div>
+          <Pagination count={countPages} handlePagination={handlePagination} />
         </div>
 
-        
-
         <div>
-
         </div>
       </div>
     </section>

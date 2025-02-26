@@ -15,7 +15,7 @@ const Product: React.FC<TProduct> = ({ title, img, price }) => {
       <div className="space-y-2">
         <h3 className="text-xl font-semibold line-clamp-1">{title}</h3>
         <p className="text-gray-400 text-[18px] font-medium font-secound">
-          {price}
+          ${price}
         </p>
         <button
           className="bg-purple-500 py-2 px-3 text-center w-full rounded cursor-pointer hover:scale-105 duration-300 ease-in-out font-secound"
