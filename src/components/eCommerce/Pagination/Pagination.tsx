@@ -16,7 +16,7 @@ const Pagination: React.FC<IPaginationState> = ({ count, handlePagination }) => 
     }
 
     return (
-        <div className="mt-8 flex w-full justify-left">
+        <div className="mt-8 flex w-full justify-end">
             <ol className="flex justify-center gap-1 text-xs font-medium">
                 <li>
                     <button

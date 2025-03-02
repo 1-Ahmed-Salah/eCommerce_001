@@ -1,5 +1,6 @@
 import { Product } from "@components/eCommerce";
 import Pagination from "@components/eCommerce/Pagination/Pagination";
+import { Loading } from "@components/feedback";
 import { useAppDispatch, useAppSelector } from "@store/hooks"
 import { thunkGetProducts } from "@store/slices/productsSlice/thunk/thunkGetProducts";
 import { useEffect, useState } from "react";
@@ -170,12 +171,14 @@ const Home = () => {
         {/* all products */}
         <div className="py-20">
           <h2 className="text-2xl font-secound text-center ">Products</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-6">
-            {
-              productsList
-            }
-          </div>
-          <Pagination count={countPages} handlePagination={handlePagination} />
+          <Loading status={loading} error={error}>
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-6">
+              {
+                productsList
+              }
+            </div>
+            <Pagination count={countPages} handlePagination={handlePagination} />
+          </Loading>
         </div>
 
         <div>
