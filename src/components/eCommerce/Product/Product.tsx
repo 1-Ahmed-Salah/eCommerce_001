@@ -5,7 +5,7 @@ const Product: React.FC<TProduct> = ({ title, img, price }) => {
   return (
     <Link 
       to='#'
-      className="space-y-3 border border-white/20 rounded p-4"
+      className="space-y-3 border border-white/20 rounded p-4 inline-block"
     >
       <img 
         src={img} 

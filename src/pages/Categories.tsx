@@ -1,4 +1,6 @@
+import { GridList } from '@components/common';
 import { Category } from '@components/eCommerce'
+import { Loading } from '@components/feedback';
 import { useAppDispatch, useAppSelector } from '@store/hooks'
 import { thunkGetCategories } from '@store/slices/categoriesSlice/categoriesSlice';
 import { useEffect } from 'react';
@@ -15,16 +17,18 @@ const Categories = () => {
     }
   }, [dispatch])
 
-  const categoriesList = records.length > 0? records.map(record => <Category key={record.id} {...record} />) : 'There are no categories'
+  
   return (
     <section className='section'>
       <div className="container">
         <div className='mt-10'>
           <h2 className='text-2xl font-secound text-center'>Categories</h2>
           {/* categories */}
-          <div className='mt-10 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5  space-y-14 space-x-6 sm:gap-2 justify-items-center'>
-            {categoriesList}
-          </div>
+          <Loading status={loading} error={error}>
+            <div className='mt-10 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5  space-y-14 space-x-6 sm:gap-2 justify-items-center'>
+              <GridList records={records} renderItem={(record)=> <Category {...record} />} />
+            </div>
+          </Loading>
         </div>
       </div>
     </section>
