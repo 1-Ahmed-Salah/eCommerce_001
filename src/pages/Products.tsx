@@ -11,6 +11,12 @@ const Products = () => {
   const {prefix} = useParams();
   const dispatch = useAppDispatch();
   const { records, loading, error } = useAppSelector(state => state.products);
+  const cartItems = useAppSelector(state => state.cart.items)
+
+  const productFullInfo = records.map(record => ({
+    ...record,
+    quantity: cartItems[record.id as number] || 0,
+  }))
 
   useEffect(()=> {
     dispatch(thunkGetProductsByPrefix(prefix as string))
@@ -28,7 +34,7 @@ const Products = () => {
           {/* Products */}
          <Loading status={loading} error={error}>
           <div className="mt-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              <GridList records={records} renderItem={(record)=> <Product {...record} />} />
+              <GridList records={productFullInfo} renderItem={(record)=> <Product {...record} />} />
             </div>
          </Loading>
         </div>

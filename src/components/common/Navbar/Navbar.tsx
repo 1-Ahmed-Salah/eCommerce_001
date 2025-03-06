@@ -1,7 +1,9 @@
-import { Heart, Menu, ShoppingCart } from "lucide-react"
+import { Menu } from "lucide-react"
 import Logo from "@assets/logo.svg"
 import { useEffect } from "react";
 import { Link } from "react-router";
+import { HeaderShop, WishList } from "@components/eCommerce";
+
 
 interface INavbarState {
     menuOpen: boolean;
@@ -70,8 +72,8 @@ const Navbar: React.FC<INavbarState> = ({menuOpen, setMenuOpen}) => {
                         
                         <div>
                             <div className="flex items-center space-x-8 ">
-                                <ShoppingCart className="cursor-pointer text-gray-300 hover:text-white duration-300" width={22}/>
-                                <Heart className="cursor-pointer text-gray-300 hover:text-white duration-300" width={22}  />
+                                <HeaderShop />
+                                <WishList />
                             </div>
                         </div>
                     </div>
