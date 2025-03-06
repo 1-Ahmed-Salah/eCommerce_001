@@ -9,6 +9,13 @@ const Home = () => {
 
   const dispatch = useAppDispatch();
   const { records, loading, error } = useAppSelector(state => state.products);
+  const cartItems = useAppSelector(state => state.cart.items)
+  const productFullInfo = records.map(record => ({
+    ...record,
+    quantity: cartItems[record.id as number] || 0,
+  }))
+
+
   const pageSize = 8;
   const countPages = Math.ceil(records.length / pageSize)
   const [pagination, setPagination] = useState({
@@ -18,7 +25,6 @@ const Home = () => {
   })
 
   const handlePagination = (page: number) => {
-    console.log(page)
     const from = (page - 1) * pageSize;
     const to = from + pageSize;
     setPagination({...pagination, from, to});
@@ -28,7 +34,7 @@ const Home = () => {
     dispatch(thunkGetProducts());
   }, [dispatch])
 
-  const productsList = records.length > 0? records.slice(pagination.from, pagination.to).map(record => <Product key={record.id} {...record} />) : 'There are no products'
+  const productsList = productFullInfo.length > 0? productFullInfo.slice(pagination.from, pagination.to).map(record => <Product key={record.id} {...record} />) : 'There are no products'
 
   return (
     <section className="section">
